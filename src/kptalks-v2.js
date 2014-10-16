@@ -124,16 +124,18 @@
 
   function createKP(settings){
     var img_src,arrow_pos;
-    if($.isArray(settings.image)==true)
-      img_src = settings.image[Math.floor(Math.random()*(settings.image.length))];
-    else
-      img_src = settings.image;
-    if(settings.enter_from == 'left')
-      arrow_pos = 'right';
-    else
-      arrow_pos = 'left';
-    var object = '<div id="kp_come_container" style="width:'+settings.width+'px; height:'+settings.height+'px; '+settings.enter_from+':-'+settings.width+'px; bottom:0;"><img src="'+img_src+'" style="width:'+settings.width+'px; height:'+settings.height+'px;"><div id="kp_popup" style="'+settings.enter_from+':'+((settings.width)*0.8)+'px;top:'+(settings.height*0.28)+'px;-webkit-border-radius:'+settings.popup_radius+';-moz-border-radius:'+settings.popup_radius+';border-radius:'+settings.popup_radius+';background-color:'+settings.popup_bgcolor+'"><div id="kp_says" style="color:'+settings.popup_color+'">'+settings.default_text+'<a href="https://www.facebook.com/kh.hungry" target="_blank" class="kp_readmore" style="color:'+settings.readmore_color+'">想要知道更多美食點這裡~</a></div><div id="kp_popup_arrow_shadow" style="border-'+arrow_pos+': 40px solid rgba(0,0,0,.1);'+settings.enter_from+': -40px;"></div><div id="kp_popup_arrow" style="border-'+arrow_pos+': 42px solid '+settings.popup_bgcolor+';'+settings.enter_from+': -40px;"></div><div id="kp_close_popup">X</div></div></div>';
-    $('body').append(object);
+    if(document.documentElement.clientWidth>500){
+      if($.isArray(settings.image)==true)
+        img_src = settings.image[Math.floor(Math.random()*(settings.image.length))];
+      else
+        img_src = settings.image;
+      if(settings.enter_from == 'left')
+        arrow_pos = 'right';
+      else
+        arrow_pos = 'left';
+      var object = '<div id="kp_come_container" style="width:'+settings.width+'px; height:'+settings.height+'px; '+settings.enter_from+':-'+settings.width+'px; bottom:0;"><img src="'+img_src+'" style="width:'+settings.width+'px; height:'+settings.height+'px;"><div id="kp_popup" style="'+settings.enter_from+':'+((settings.width)*0.8)+'px;top:'+(settings.height*0.28)+'px;-webkit-border-radius:'+settings.popup_radius+';-moz-border-radius:'+settings.popup_radius+';border-radius:'+settings.popup_radius+';background-color:'+settings.popup_bgcolor+'"><div id="kp_says" style="color:'+settings.popup_color+'">'+settings.default_text+'<a href="https://www.facebook.com/kh.hungry" target="_blank" class="kp_readmore" style="color:'+settings.readmore_color+'">想要知道更多美食點這裡~</a></div><div id="kp_popup_arrow_shadow" style="border-'+arrow_pos+': 40px solid rgba(0,0,0,.1);'+settings.enter_from+': -40px;"></div><div id="kp_popup_arrow" style="border-'+arrow_pos+': 42px solid '+settings.popup_bgcolor+';'+settings.enter_from+': -40px;"></div><div id="kp_close_popup">X</div></div></div>';
+      $('body').append(object);
+    }
     // loadData(settings);
   }
   function popupIn(effect) {
