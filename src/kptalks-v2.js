@@ -17,7 +17,7 @@
         readmore_color: 'brown', // popup font color
         comein_position: 15, // show kp after scroll more than percent of page height
         default_text: '歡迎來到高雄巴豆妖，我是小豆~', // the words show in popup before loading done
-        enter_from: 'left', // options: left, right
+        enter_from: 'right', // options: left, right
         enter_distance: -130 // the distance to window side
 
         //left: -130, // remove this option after ver2.0
