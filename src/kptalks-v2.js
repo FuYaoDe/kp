@@ -5,7 +5,7 @@
     var settings = $.extend({
         api: 'http://api.kptaipei.tw/v1/category/40?accessToken=kp53f568e77303e9.28212837',
         image: [
-          'https://github.com/FuYaoDe/kp/blob/gh-pages/img/khhungry.png'
+          'https://raw.githubusercontent.com/FuYaoDe/kp/gh-pages/img/khhungry.png'
         ],
         height: 450, // image height
         width: 466, // image width
