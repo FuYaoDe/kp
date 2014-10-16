@@ -3,7 +3,7 @@
   $.kptalks = function(options) {
 
     var settings = $.extend({
-        api: 'http://api.kptaipei.tw/v1/category/40?accessToken=kp53f568e77303e9.28212837',
+        api: '',
         image: [
           'https://raw.githubusercontent.com/FuYaoDe/kp/gh-pages/img/khhungry.png'
         ],
