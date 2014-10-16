@@ -7,8 +7,8 @@
         image: [
           'https://raw.githubusercontent.com/FuYaoDe/kp/gh-pages/img/khhungry.png'
         ],
-        height: 450, // image height
-        width: 466, // image width
+        height: 410, // image height
+        width: 350, // image width
         effect: 'default', // options: default, fast, slow, veryslow, jump, sneaky
         popup_effect: 'fade', // options: default, fade, slide, zoom
         popup_radius: '8px', // popup radius
@@ -16,7 +16,7 @@
         popup_bgcolor: 'beige', // popup background color
         readmore_color: 'brown', // popup font color
         comein_position: 80, // show kp after scroll more than percent of page height
-        default_text: '你好，我是柯文哲', // the words show in popup before loading done
+        default_text: '歡迎來到高雄巴豆妖部落格，我是小豆~', // the words show in popup before loading done
         enter_from: 'left', // options: left, right
         enter_distance: -130 // the distance to window side
 
@@ -106,7 +106,7 @@
         if(container.css(settings.enter_from) == settings.enter_distance+'px') {
           popup.hide();
           container.animate(come_out, 100);
-          loadData(settings);
+          // loadData(settings);
         }
       }
     });
@@ -118,7 +118,7 @@
     });
     close.click(function(){
       popup.hide();
-      loadData(settings);
+      // loadData(settings);
     });
   };
 
@@ -132,48 +132,10 @@
       arrow_pos = 'right';
     else
       arrow_pos = 'left';
-    var object = '<div id="kp_come_container" style="width:'+settings.width+'px; height:'+settings.height+'px; '+settings.enter_from+':-'+settings.width+'px; bottom:0;"><img src="'+img_src+'" style="width:'+settings.width+'px; height:'+settings.height+'px;"><div id="kp_popup" style="'+settings.enter_from+':'+((settings.width)*0.8)+'px;top:'+(settings.height*0.28)+'px;-webkit-border-radius:'+settings.popup_radius+';-moz-border-radius:'+settings.popup_radius+';border-radius:'+settings.popup_radius+';background-color:'+settings.popup_bgcolor+'"><div id="kp_says" style="color:'+settings.popup_color+'">'+settings.default_text+'<a href="http://kptaipei.tw" target="_blank" class="kp_readmore" style="color:'+settings.readmore_color+'">了解更多柯文哲的政見</a></div><div id="kp_popup_arrow_shadow" style="border-'+arrow_pos+': 40px solid rgba(0,0,0,.1);'+settings.enter_from+': -40px;"></div><div id="kp_popup_arrow" style="border-'+arrow_pos+': 42px solid '+settings.popup_bgcolor+';'+settings.enter_from+': -40px;"></div><div id="kp_close_popup">X</div></div></div>';
+    var object = '<div id="kp_come_container" style="width:'+settings.width+'px; height:'+settings.height+'px; '+settings.enter_from+':-'+settings.width+'px; bottom:0;"><img src="'+img_src+'" style="width:'+settings.width+'px; height:'+settings.height+'px;"><div id="kp_popup" style="'+settings.enter_from+':'+((settings.width)*0.8)+'px;top:'+(settings.height*0.28)+'px;-webkit-border-radius:'+settings.popup_radius+';-moz-border-radius:'+settings.popup_radius+';border-radius:'+settings.popup_radius+';background-color:'+settings.popup_bgcolor+'"><div id="kp_says" style="color:'+settings.popup_color+'">'+settings.default_text+'<a href="https://www.facebook.com/kh.hungry" target="_blank" class="kp_readmore" style="color:'+settings.readmore_color+'">想要知道更多美食點這裡~</a></div><div id="kp_popup_arrow_shadow" style="border-'+arrow_pos+': 40px solid rgba(0,0,0,.1);'+settings.enter_from+': -40px;"></div><div id="kp_popup_arrow" style="border-'+arrow_pos+': 42px solid '+settings.popup_bgcolor+';'+settings.enter_from+': -40px;"></div><div id="kp_close_popup">X</div></div></div>';
     $('body').append(object);
-    loadData(settings);
+    // loadData(settings);
   }
-
-  function loadData(settings){
-    var posts = {}, says;
-    $.get(settings.api,function(results){
-      var i = 0;
-      $.each(results.data,function(ind,item){
-        posts[i] = item; i++;
-      });
-      var post = posts[Math.floor(Math.random()*(i-1))]
-          link = '<a href="'+post.url+'" target="_blank" class="kp_readmore" style="color:'+settings.readmore_color+'">了解更多柯文哲的政見</a>';
-
-      var title = (post.title).replace(/【柯p新政】/g,"");
-      var content = stringReplace(post.plain_content);
-      content = content.split('\n');
-      if(content[1] == undefined){
-        says = '<p id="kp_say_bighi" style="color:'+settings.popup_color+'">'+settings.default_text+'<br>我提出<br>「'+title.substring(2)+'」</p>'+link;
-      }
-      else {
-        says = '<p id="kp_say_hi" style="color:'+settings.popup_color+'">'+settings.default_text+'</p>'+content[3]+content[4]+'...'+link+'</p>';
-      }
-
-      $('#kp_says').scrollTop(0).html(says).promise().done(function(){
-        $('p').removeAttr("style"); $('span').removeAttr("style");
-      });
-    });
-  }
-
-  function stringReplace(string){
-    return string.replace(/柯文哲/g,'我')
-      .replace(/台北市長參選人/g,'')
-      .replace(/我表示/g,'我認為')
-      .replace(/我指出/g,'我認為')
-      .replace('今（29）日','')
-      .replace('「','')
-      .replace('」','')
-      .replace('柯P的主張我的政策主張','我主張');
-  }
-
   function popupIn(effect) {
     switch(effect) {
 
