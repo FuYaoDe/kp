@@ -5,7 +5,7 @@
     var settings = $.extend({
         api: '',
         image: [
-          'https://raw.githubusercontent.com/FuYaoDe/kp/gh-pages/img/khhungry.png'
+          'https://raw.githubusercontent.com/FuYaoDe/kp/gh-pages/img/khhungry2.png'
         ],
         height: 410, // image height
         width: 350, // image width
