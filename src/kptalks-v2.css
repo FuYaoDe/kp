@@ -21,7 +21,7 @@ html,body{
   text-align: center;
   font-size: 18px;
   line-height: 26px;
-  height: 115px;
+  height: auto;
   overflow-y: auto;
   text-algin: center;
   -webkit-box-sizing: initial;
