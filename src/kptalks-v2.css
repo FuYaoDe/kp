@@ -7,7 +7,7 @@ html,body{
 }
 #kp_come_container #kp_popup {
   padding: 20px;
-  width: 300px; height:140px;
+  width: 300px; height:180px;
   position: absolute;
   z-index: 99999999;
   -webkit-box-shadow: rgba(0,0,0,.4) 0px 1px 5px -1px;
