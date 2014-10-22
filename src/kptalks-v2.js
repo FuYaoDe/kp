@@ -84,11 +84,11 @@
               sneaky_pos3[settings.enter_from] = '-'+(settings.width*0.7)+'px';
 
               container
-                .animate(sneaky_pos1, 2000).delay(2000)
-                .animate(sneaky_pos2, 1000).delay(1000)
-                .animate(sneaky_pos1, 1000).delay(2000)
-                .animate(sneaky_pos3, 2000).delay(1000)
-                .animate(come_in, 3000, function() {
+                .animate(sneaky_pos1, 800).delay(500)
+                .animate(sneaky_pos2, 800).delay(500)
+                // .animate(sneaky_pos1, 500).delay(500)
+                // .animate(sneaky_pos3, 800).delay(500)
+                .animate(come_in, 1000, function() {
                   popupIn(settings.popup_effect);
                 });
               break;
